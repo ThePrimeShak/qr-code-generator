@@ -1,29 +1,30 @@
-# qr-code
+# QR Studio
 
-This template should help get you started developing with Vue 3 in Vite.
+A small university project by [ThePrimeShak](https://www.linkedin.com/in/theprimeshak/), built with Vue 3 and Vite.
 
-## Recommended IDE Setup
+Turn links or text into QR codes and download them as 1024 × 1024 PNG images. QR codes are generated locally in the browser; entered content is not sent to a server.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Development
 
 ```sh
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+## Production build
 
 ```sh
 npm run build
+npm run preview
 ```
+
+The production files are generated in `dist/`.
+
+## Features
+
+- Responsive editor and QR preview
+- PNG download with a standard QR quiet zone
+- Empty-input validation and generation error feedback
+- GitHub repository and LinkedIn profile links in the header
+
+Uses [qrcode](https://github.com/soldair/node-qrcode) for QR encoding.
