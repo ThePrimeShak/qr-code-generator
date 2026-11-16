@@ -65,10 +65,17 @@ const downloadQrCode = () => {
 		<v-container>
 			<v-row>
 				<v-col cols="12" md="4" class="d-flex align-center">
-					<div>
-						<p class="text-body-1">Find Me By</p>
-						<h1 class="ml-3 text-h4 logo">shakurt</h1>
-					</div>
+					<a
+						class="profile-link"
+						href="https://github.com/ThePrimeShak"
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Visit ThePrimeSHak on GitHub"
+					>
+						<span class="profile-link__label">GitHub</span>
+						<span class="profile-link__name">ThePrimeSHak</span>
+						<span class="profile-link__arrow" aria-hidden="true">↗</span>
+					</a>
 				</v-col>
 				<v-col cols="12" md="4" class="d-flex justify-center align-center">
 					<h2 class="text-h6">Qr Code Maker</h2>
@@ -136,8 +143,56 @@ header {
 	color: var(--white-color);
 }
 
-.logo {
-	letter-spacing: 5px !important;
+.profile-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 9px 13px;
+	border: 1px solid rgba(238, 238, 238, 0.18);
+	border-radius: 12px;
+	color: var(--white-color);
+	text-decoration: none;
+	transition:
+		border-color 180ms ease,
+		background-color 180ms ease,
+		transform 180ms ease;
+}
+
+.profile-link:hover,
+.profile-link:focus-visible {
+	background-color: rgba(0, 173, 181, 0.12);
+	border-color: var(--blue-color);
+	transform: translateY(-2px);
+}
+
+.profile-link:focus-visible {
+	outline: 2px solid var(--blue-color);
+	outline-offset: 3px;
+}
+
+.profile-link__label {
+	color: var(--blue-color);
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.profile-link__name {
+	font-size: 1.15rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+
+.profile-link__arrow {
+	color: var(--blue-color);
+	font-size: 1.1rem;
+}
+
+.input-container {
+	width: 720px;
+	max-width: 100%;
+	margin-inline: auto;
 }
 
 .qr-code-image {
