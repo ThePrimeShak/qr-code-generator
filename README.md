@@ -1,52 +1,54 @@
 # QR Studio
 
-A small university project by [ThePrimeShak](https://www.linkedin.com/in/theprimeshak/), built with Vue 3 and Vite.
+A browser-based QR code generator built with Vue and Vite as a university project.
 
-Turn links or text into QR codes and download them as 1024 × 1024 PNG images. QR codes are generated locally in the browser; entered content is not sent to a server.
+**Live demo:** [Open on Vercel](https://qr-code-generator-psi-rose.vercel.app)
 
-## Getting started
+## Overview
 
-Use Node.js 18 or newer and npm.
+A small university project for converting links and text into downloadable QR images. Encoding runs locally in the browser.
+
+## Features
+
+- Generate 1024 × 1024 PNG QR codes from links or text.
+- Validate empty input while preserving the original encoded content.
+- Download generated PNG images with a standard QR quiet zone.
+- Keep the last successful result visible if a later attempt fails.
+
+## Tech stack
+
+Vue 3, JavaScript, Vite, qrcode, CSS, Node.js built-in test runner.
+
+## Run locally
+
+Use Node.js 22.12 or newer and npm.
 
 ```sh
+git clone https://github.com/ThePrimeShak/qr-code-generator.git
+cd qr-code-generator
 npm ci
 npm run dev
 ```
 
-## Commands
+## Available scripts
 
 | Command | Purpose |
 | --- | --- |
 | `npm run dev` | Start the development server |
-| `npm test` | Run the automated tests with Node's built-in test runner |
-| `npm run build` | Build the production app into `dist/` |
-| `npm run preview` | Preview the production build locally |
+| `npm run build` | Create the production build |
+| `npm run preview` | Preview the production build |
+| `npm run test` | Run automated tests |
 
 ## Project structure
 
-| Path | Responsibility |
-| --- | --- |
-| `src/main.js` | Load global styles and mount Vue |
-| `src/App.vue` | Compose the page layout and introductory content |
-| `src/components/layout/` | Site header and footer |
-| `src/components/qr/QrGenerator.vue` | Connect the form, preview, and QR state; handle downloads |
-| `src/components/qr/QrCodeForm.vue` | Render the input and validation feedback; emit input and submit events |
-| `src/components/qr/QrCodePreview.vue` | Render the empty or generated preview; emit download events |
-| `src/composables/useQrCode.js` | Manage input, loading, validation, errors, and the last successful result |
-| `src/services/qrCode.js` | Encode content and define the QR image settings |
-| `src/utils/download.js` | Trigger a browser download and clean up its temporary anchor |
-| `src/styles/main.css` | Global styles and shared color variables |
-| `tests/` | QR generation, state transitions, and download tests |
+- `src/components/qr/` — form, preview, and generator UI.
+- `src/composables/` and `src/services/` — QR state and encoding.
+- `src/utils/` and `tests/` — download helper and automated tests.
 
-Component-specific styles live in each Vue component's scoped style block, including its responsive rules. The form and preview communicate through declared props and events. State belongs to the generator's composable instance.
+## Scope and limitations
 
-The generator validates whitespace-only input but preserves the original content when encoding. Failed attempts keep the last successful QR visible with its original text. The image size displayed in the preview comes from the encoding configuration.
+No backend, API key, or environment variables are required. Entered content is encoded locally and is not uploaded by the generator.
 
-## Features
+## Author
 
-- Responsive editor and QR preview
-- PNG download with a standard QR quiet zone
-- Empty-input validation and generation error feedback
-- GitHub repository and LinkedIn profile links in the header
-
-Uses [qrcode](https://github.com/soldair/node-qrcode) for QR encoding.
+Built by [ThePrimeShak](https://github.com/ThePrimeShak) · [LinkedIn](https://www.linkedin.com/in/theprimeshak/).
